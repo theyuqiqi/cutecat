@@ -3,15 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title>我最喜欢的小宝宝</title>
+<style>
+/* 页面整体淡入效果 */
+body{
+    animation: fadeIn 5.0s ease-in-out;
+}
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+</style>
 </head>
 <body style="text-align:center; background:#fff9fa;">
-<h1>世界上最可爱最萌萌哒的<span style="color:#f2a8b8;font-size:44px;">棠棠</span></h1>
+<h1>世界上最可爱最萌萌哒的<span style="color:#f2a8b8;font-size:44px;">棠棠！</span></h1>
 <p style="font-size:32px;"><span style="color:lightblue;font-size:40px;">乳酸菌</span>最爱的<span style="color:#f2a8b8;font-size:40px;">香芋派</span></p>
 <p style="font-size:32px;"><span style="color:lightblue;font-size:40px;">哈基堡</span>最爱的<span style="color:#f2a8b8;font-size:40px;">哈基挞</span></p>
 <p style="font-size:32px;"><span style="color:lightblue;font-size:40px;">小狗狗</span>最爱的<span style="color:#f2a8b8;font-size:40px;">小猫猫</span></p>
 <p style="font-size:32px;"><span style="color:lightblue;font-size:40px;">小猪猪</span>最爱的<span style="color:#f2a8b8;font-size:40px;">小兔兔</span></p>
 
-<img src="https://raw.githubusercontent.com/theyuqiqi/cutecat/refs/heads/main/445f430b34a5a27cc00fc238dc527fc0.jpg" style="width:400px; height:auto;object-fit:contain">
+<p style="text-align:center; font-size:32px; color:#f2a8b8; margin:30px 0;">
+🐱和棠棠在一起🐱<br>
+<span id="timeShow" style="font-size:32px;font-weight:bold;"></span>
+</p >
+
+<img src="https://raw.githubusercontent.com/theyuqiqi/cutecat/refs/heads/main/445f430b34a5a27cc00fc238dc527fc0.jpg" 
+style="width:400px; height:auto;object-fit:contain;box-shadow: 0 0 24px #ffc8da;border-radius:20px"onclick="alert('🐾可爱的小猫猫🐾\n🐾喵喵喵🐾')">
 
 <script>
 function createHeart(){
@@ -36,6 +52,22 @@ function createHeart(){
   },7000);
 }
 setInterval(createHeart,300);
+
+const startTime = new Date("2025-12-28 00:00:00");
+
+function calcTime() {
+  const now = new Date();
+  const diff = now - startTime;
+
+  const day = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hour = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minute = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+  document.getElementById("timeShow").innerText = `${day}天 ${hour}时 ${minute}分`;
+}
+
+calcTime();
+setInterval(calcTime, 60 * 1000);
 </script>
 </body>
 </html>
